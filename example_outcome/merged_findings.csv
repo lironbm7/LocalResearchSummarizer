@@ -1,0 +1,174 @@
+Repository,severity,language,confidence,code,details
+AndroGoat,HIGH,Kotlin,MEDIUM,"fire.supersu-1/base.apk"");","(1/1) * Possible vulnerability detected: Super User Privileges
+This App may request root (Super User) privileges. For more information checkout the CWE-250 (https://cwe.mitre.org/data/definitions/250.html) advisory."
+AndroGoat,HIGH,Kotlin,MEDIUM,"fire.supersu-1/base.apk"");","(1/1) * Possible vulnerability detected: Super User Privileges
+This App may request root (Super User) privileges. For more information checkout the CWE-250 (https://cwe.mitre.org/data/definitions/250.html) advisory."
+AndroGoat,HIGH,Kotlin,LOW,import android.database.sqlite.SQLiteDatabase,"(1/1) * Possible vulnerability detected: SQL Injection With SQLite
+App uses SQLite Database and execute raw SQL query. Untrusted user input in raw SQL queries can cause SQL Injection. Also sensitive information should be encrypted and written to the database. For more information checkout the CWE-89 (https://cwe.mitre.org/data/definitions/89.html) advisory."
+AndroGoat,HIGH,Kotlin,LOW,import android.database.sqlite.SQLiteDatabase,"(1/1) * Possible vulnerability detected: SQL Injection With SQLite
+App uses SQLite Database and execute raw SQL query. Untrusted user input in raw SQL queries can cause SQL Injection. Also sensitive information should be encrypted and written to the database. For more information checkout the CWE-89 (https://cwe.mitre.org/data/definitions/89.html) advisory."
+AndroGoat,MEDIUM,Kotlin,HIGH,import android.webkit.WebView,"(1/1) * Possible vulnerability detected: WebView GET Request
+WebView GET Request"
+habitica-android,CRITICAL,Ruby,MEDIUM,    jmespath (1.4.0),"(1/1) * Possible vulnerability detected: JMESPath for Ruby using JSON.load instead of JSON.parse
+Fixed Version: >= 1.6.1; 
+jmespath.rb (aka JMESPath for Ruby) before 1.6.1 uses JSON.load in a
+situation where JSON.parse is preferable.
+CVE: 2022-32511"
+habitica-android,CRITICAL,Generic,MEDIUM,"    jmespath (1.4.0)
+	Installed Version: ""1.4.0""
+	Update to Version: "">= 1.6.1"" for fix this issue.","(1/1) * Possible vulnerability detected: jmespath.rb (aka JMESPath for Ruby) before 1.6.1 uses JSON.load in a situation where JSON.parse is preferable.
+PrimaryURL: https://avd.aquasec.com/nvd/cve-2022-32511."
+habitica-android,CRITICAL,Leaks,MEDIUM,binding?.twitter?.setOnClickListener { openBrowserLink(twitterLink) },"(1/1) * Possible vulnerability detected: Twitter Client ID
+When use Twitter Client ID is recommended use vault or environment variable encrypted for the best security. For more information checkout the CWE-312 (https://cwe.mitre.org/data/definitions/312.html) advisory."
+habitica-android,CRITICAL,Leaks,MEDIUM,AAAALLLLJJ8H;;;;JJNNNNHHHAAA====JJJJJJ^^^^CC999[999=>9999====;<99');;J===='''666####;;;,"(1/1) * Possible vulnerability detected: AWS Secret Key
+When use AWS Secret Key is recommended use vault or environment variable encrypted for the best security. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+habitica-android,CRITICAL,Leaks,MEDIUM,AAAA5Wa*)Fe--M?<HF335D.>3UUD@B7@=99.A5O4BB@CPAEB7>67H;C<Y[DT8>X;;IE>/pp55528899S88>X:7e,"(1/1) * Possible vulnerability detected: AWS Secret Key
+When use AWS Secret Key is recommended use vault or environment variable encrypted for the best security. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+habitica-android,HIGH,Ruby,MEDIUM,    addressable (2.7.0),"(1/1) * Possible vulnerability detected: Regular Expression Denial of Service in Addressable templates
+Fixed Version: >= 2.8.0; 
+Within the URI template implementation in Addressable, a maliciously crafted template may result in uncontrolled resource consumption,
+leading to denial of service when matched against a URI. In typical usage, templates would not normally be read from untrusted user input,
+but nonetheless, no previous security advisory for Addressable has cautioned against doing this.
+Users of the parsing capabilities in Addressable but not the URI template capabilities are unaffected.
+CVE: 2021-32740"
+habitica-android,HIGH,Generic,MEDIUM,"    addressable (2.7.0)
+	Installed Version: ""2.7.0""
+	Update to Version: "">= 2.8.0"" for fix this issue.","(1/1) * Possible vulnerability detected: Addressable is an alternative implementation to the URI implementation that is part of Ruby's standard library. An uncontrolled resource consumption vulnerability exists after version 2.3.0 through version 2.7.0. Within the URI template implementation in Addressable, a maliciously crafted template may result in uncontrolled resource consumption, leading to denial of service when matched against a URI. In typical usage, templates would not normally be read from untrusted user input, but nonetheless, no previous security advisory for Addressable has cautioned against doing this. Users of the parsing capabilities in Addressable but not the URI template capabilities are unaffected. The vulnerability is patched in version 2.8.0. As a workaround, only create Template objects from trusted sources that have been validated not to produce catastrophic backtracking.
+PrimaryURL: https://avd.aquasec.com/nvd/cve-2021-32740.
+Cwe Links: (https://cwe.mitre.org/data/definitions/400.html)"
+habitica-android,HIGH,Java,LOW,"android:background=""@drawable/subscription_unselected""","(1/1) * Possible vulnerability detected: SQL Injection
+The input values included in SQL queries need to be passed in safely. Bind variables in prepared statements can be used to easily mitigate the risk of SQL injection. Alternatively to prepare statements, each parameter can be escaped manually. For more information checkout the CWE-89 (https://cwe.mitre.org/data/definitions/89.html) advisory."
+habitica-android,HIGH,Java,LOW,"<string name=""suggestions_feedback""><![CDATA[Suggestions & Feedback]]></string>","(1/1) * Possible vulnerability detected: Bad hexadecimal concatenation
+When converting a byte array containing a hash signature to a human readable string, a conversion mistake can be made if the array is read byte by byte. The following sample illustrates the use of the method Integer.toHexString() which will trim any leading zeroes from each byte of the computed hash value. For more information checkout the CWE-704 (https://cwe.mitre.org/data/definitions/704.html) advisory."
+habitica-android,HIGH,Java,LOW,"<string name=""bugs_fixes""><![CDATA[Bugs & Fixes]]></string>","(1/1) * Possible vulnerability detected: Bad hexadecimal concatenation
+When converting a byte array containing a hash signature to a human readable string, a conversion mistake can be made if the array is read byte by byte. The following sample illustrates the use of the method Integer.toHexString() which will trim any leading zeroes from each byte of the computed hash value. For more information checkout the CWE-704 (https://cwe.mitre.org/data/definitions/704.html) advisory."
+habitica-android,MEDIUM,Kotlin,LOW,import android.util.Base64,"(1/2) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used.
+         
+(2/2) * Possible vulnerability detected: Base64 Decode
+Base64 Decode"
+habitica-android,MEDIUM,Kotlin,LOW,"enryptedKeyB64 = Base64.encodeToString(encryptedKey, Base64.DEFAULT)","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"return Base64.encodeToString(encodedBytes, Base64.DEFAULT)","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"publicIV = Base64.encodeToString(generated, Base64.DEFAULT)","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"var bodyOfEmail = Uri.encode(""Device: $manufacturer $deviceName"") +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"newLine + Uri.encode(""Android Version: $version"") +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,newLine + Uri.encode(,"(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,bodyOfEmail += newLine + Uri.encode(appConfigManager.testingLevel().name),"(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"bodyOfEmail += newLine + Uri.encode(""User ID: $userId"")","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"bodyOfEmail += newLine + Uri.encode(""Level: "" + (user.stats?.lvl ?: 0)) +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,newLine + Uri.encode(,"(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"newLine + Uri.encode(""Is in Inn: "" + (user.preferences?.sleep ?: false)) +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"newLine + Uri.encode(""Uses Costume: "" + (user.preferences?.costume ?: false)) +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"newLine + Uri.encode(""Custom Day Start: "" + (user.preferences?.dayStart ?: 0)) +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,newLine + Uri.encode(,"(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+habitica-android,MEDIUM,Kotlin,LOW,"""?subject="" + Uri.encode(subject) +","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+Goatlin,CRITICAL,Leaks,MEDIUM,"if ((mUsername == ""Supervisor"") and (mPassword == ""MySuperSecretPassword123!"")){","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+Goatlin,HIGH,JavaScript,LOW,qs,"(1/1) * Possible vulnerability detected: qs before 6.10.3 allows attackers to cause a Node process hang because an `__ proto__` key can be used. In many typical web framework use cases, an unauthenticated remote attacker can place the attack payload in the query string of the URL that is used to visit the application, such as `a[__proto__]=b&a[__proto__]&a[length]=100000000`. The fix was backported to qs 6.9.7, 6.8.3, 6.7.3, 6.6.1, 6.5.3, 6.4.1, 6.3.3, and 6.2.4."
+Goatlin,HIGH,JavaScript,LOW,mongoose,(1/1) * Possible vulnerability detected: Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.\n\nAffected versions of this package are vulnerable to Prototype Pollution. The `Schema.path()` function is vulnerable to prototype pollution when setting the schema object. This vulnerability allows modification of the Object prototype and could be manipulated into a Denial of Service (DoS) attack.
+Goatlin,HIGH,Generic,MEDIUM,root user,"(1/1) * Possible vulnerability detected: MissConfiguration
+      Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+      Message: Specify at least 1 USER command in Dockerfile with non-root user as argument
+      Resolution: Add 'USER <non root user name>' line to the Dockerfile
+      References: [https://docs.docker.com/develop/develop-images/dockerfile_best-practices/ https://avd.aquasec.com/appshield/ds002]"
+Goatlin,HIGH,Generic,MEDIUM,"      ""resolved"": ""https://registry.npmjs.org/mongoose/-/mongoose-5.7.5.tgz"",
+	Installed Version: ""5.7.5""
+	Update to Version: ""5.13.15, 6.4.6"" for fix this issue.","(1/1) * Possible vulnerability detected: Prototype Pollution in GitHub repository automattic/mongoose prior to 6.4.6.
+PrimaryURL: https://avd.aquasec.com/nvd/cve-2022-2564.
+Cwe Links: (https://cwe.mitre.org/data/definitions/1321.html)"
+Goatlin,HIGH,Generic,MEDIUM,"        ""qs"": ""6.5.2"",
+	Installed Version: ""6.5.2""
+	Update to Version: ""6.2.4, 6.3.3, 6.4.1, 6.5.3, 6.6.1, 6.7.3, 6.8.3, 6.9.7, 6.10.3"" for fix this issue.","(1/1) * Possible vulnerability detected: qs before 6.10.3, as used in Express before 4.17.3 and other products, allows attackers to cause a Node process hang for an Express application because an __ proto__ key can be used. In many typical Express use cases, an unauthenticated remote attacker can place the attack payload in the query string of the URL that is used to visit the application, such as a[__proto__]=b&a[__proto__]&a[length]=100000000. The fix was backported to qs 6.9.7, 6.8.3, 6.7.3, 6.6.1, 6.5.3, 6.4.1, 6.3.3, and 6.2.4 (and therefore Express 4.17.3, which has ""deps: qs@6.9.7"" in its release description, is not vulnerable).
+PrimaryURL: https://avd.aquasec.com/nvd/cve-2022-24999.
+Cwe Links: (https://cwe.mitre.org/data/definitions/1321.html)"
+Goatlin,MEDIUM,Kotlin,LOW,import android.content.ContentProvider,"(1/1) * Possible vulnerability detected: No uses Content Provider
+No uses Content Provider"
+Goatlin,MEDIUM,Kotlin,LOW,import android.content.ContentProvider,"(1/1) * Possible vulnerability detected: No uses Content Provider
+No uses Content Provider"
+Goatlin,MEDIUM,Kotlin,LOW,import android.util.Base64,"(1/2) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used.
+         
+(2/2) * Possible vulnerability detected: Base64 Decode
+Base64 Decode"
+Goatlin,MEDIUM,Kotlin,LOW,"val b64Encoded: String = Base64.encodeToString(plain, Base64.NO_WRAP)","(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
+Goatlin,MEDIUM,JavaScript,LOW,mpath,"(1/1) * Possible vulnerability detected: This affects the package mpath before 0.8.4. A type confusion vulnerability can lead to a bypass of CVE-2018-16490. In particular, the condition ignoreProperties.indexOf(parts[i]) !== -1 returns -1 if parts[i] is ['__proto__']. This is because the method that has been called if the input is an array is Array.prototype.indexOf() and not String.prototype.indexOf(). They behave differently depending on the type of the input."
+Goatlin,MEDIUM,JavaScript,LOW,mquery,"(1/1) * Possible vulnerability detected: lib/utils.js in mquery before 3.2.3 allows a pollution attack because a special property (e.g., __proto__) can be copied during a merge or clone operation."
+Goatlin,MEDIUM,Generic,MEDIUM,"        ""mpath"": ""0.6.0"",
+	Installed Version: ""0.6.0""
+	Update to Version: ""0.8.4"" for fix this issue.","(1/1) * Possible vulnerability detected: This affects the package mpath before 0.8.4. A type confusion vulnerability can lead to a bypass of CVE-2018-16490. In particular, the condition ignoreProperties.indexOf(parts[i]) !== -1 returns -1 if parts[i] is ['__proto__']. This is because the method that has been called if the input is an array is Array.prototype.indexOf() and not String.prototype.indexOf(). They behave differently depending on the type of the input.
+PrimaryURL: https://avd.aquasec.com/nvd/cve-2021-23438.
+Cwe Links: (https://cwe.mitre.org/data/definitions/843.html)"
+Goatlin,MEDIUM,Generic,MEDIUM,"        ""mquery"": ""3.2.2"",
+	Installed Version: ""3.2.2""
+	Update to Version: ""3.2.3"" for fix this issue.","(1/1) * Possible vulnerability detected: lib/utils.js in mquery before 3.2.3 allows a pollution attack because a special property (e.g., __proto__) can be copied during a merge or clone operation.
+PrimaryURL: https://avd.aquasec.com/nvd/cve-2020-35149."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""password1234""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val confirmPassword = ""password1234""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""password""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val confirmPassword = ""confirmPassword""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"password = ""johndoe1234"",","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""eodnhoj""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val confirmPassword = ""eodnhojabcd""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""doe""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""doe12345""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""eodnhoj1234""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"""password"": ""12346789""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"""password"": ""12346789""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"password = ""password"",","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""eodnhoj""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""eod""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""4321eodnhoj""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val password = ""54321eodnhoj""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"""password"": ""12346789""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"password = ""password"",","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"confirmPassword = ""password"",","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val response = repository.addUser(username = ""admin"", password = ""admin"")","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"val response = repository.addUser(username = ""john"", password = ""doe"")","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"password = ""admin""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"password = ""doe""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"return if (authRequest.username == ""admin"" && authRequest.password == ""admin"") {","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,CRITICAL,Leaks,MEDIUM,"""password"": ""12346789""","(1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory."
+NotyKT,MEDIUM,Kotlin,LOW,inline fun <reified T> T.toJson(): String = Json.encodeToString(this),"(1/1) * Possible vulnerability detected: Base64 Encode
+Basic authentication's only means of obfuscation is Base64 encoding. Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used."
