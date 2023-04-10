@@ -47,10 +47,10 @@ After defining the required variables, run the program. A file named 'output.xls
 
 ```python
 directories = [
-    "/Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat",
-    "/Users/lironbiam/Documents/GoatRepositories/Swift/iGoat-Swift",
-    "/Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin",
-    "/Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT"
+    "~/Documents/GoatRepositories/Kotlin/AndroGoat",
+    "~/Documents/GoatRepositories/Swift/iGoat-Swift",
+    "~/Documents/GoatRepositories/Kotlin/Goatlin",
+    "~/Documents/GoatRepositories/Kotlin/NotyKT"
 ]
 ```
 
