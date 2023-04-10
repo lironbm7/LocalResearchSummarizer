@@ -4,13 +4,14 @@ import json
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 import csv
+import string  # handle non-printable ASCII characters in conversion from .json to .csv (issue that occurred)
 
 # Define PATH of repo directories that the tool will scan
 directories = [
-    "/Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat",
-    "/Users/lironbiam/Documents/GoatRepositories/Swift/iGoat-Swift",
-    "/Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin",
-    "/Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT"
+    "~/Documents/GoatRepositories/Kotlin/AndroGoat",
+    "~/Documents/GoatRepositories/habitica-android",
+    "~/Documents/GoatRepositories/Kotlin/Goatlin",
+    "~/Documents/GoatRepositories/Kotlin/NotyKT"
 ]
 # Tool definitions, see Readme.md for more information
 output_file = 'findings.json'  # you don't have to change it
@@ -41,9 +42,10 @@ for directory in directories:
         headers_row = ['Repository'] + headers
         writer.writerow(headers_row)
         for item in data:
-            data_row = [project_name] + [item[header] for header in headers]
+            data_row = [project_name] + ["".join(filter(lambda x: x in string.printable, str(item[header]))) for header
+                                         in headers]
             writer.writerow(data_row)
-
+# create a csv of all combined findings in the python tool dir
 with open('merged_findings.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['Repository'] + headers)
@@ -55,6 +57,7 @@ with open('merged_findings.csv', 'w', newline='') as f:
             for row in subdir_reader:
                 writer.writerow([project_name] + row[1:])  # write all fields except the Repository field
 
+# convert .csv to .xlsx
 with open('merged_findings.csv', 'r') as f:
     data = csv.reader(f)
     next(data)  # Skip header row
@@ -73,7 +76,7 @@ with open('merged_findings.csv', 'r') as f:
         cell.font = header_font
         cell.fill = header_fill
 
-    # Define fill patterns for alternating rows
+    # Define fill for alternating rows
     white_fill = PatternFill(start_color='FFFFFF', end_color='FFFFFF', fill_type='solid')
     grey_fill = PatternFill(start_color='F0F0F0', end_color='F0F0F0', fill_type='solid')
 
