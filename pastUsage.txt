@@ -1,9 +1,0 @@
-horusec
-    tool_cmd = ["horusec", "start", "-p=.", "-o=json", f"-O=./{output_file}", "-s=LOW"]
-    headers = ['severity', 'language', 'confidence', 'code', 'details']
-    jq_cmd = ['jq', '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]']
-
-semgrep for Kotlin
-    tool_cmd = ["semgrep", "scan", "--config=auto", "--verbose", f"--output=./{output_file}", "--json", "--severity=ERROR", "--severity=WARNING"]
-    headers = ['severity', 'path', 'lines', 'message']
-    jq_cmd = ['jq', '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]']

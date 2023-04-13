@@ -1,0 +1,1 @@
+Copy contents (for example of semgrep.yaml) to your config.yaml to use a preconfigured .yaml

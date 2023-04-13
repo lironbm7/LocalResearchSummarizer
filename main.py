@@ -4,34 +4,26 @@ import json
 import csv
 import string
 import os
+import yaml
 from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 
 
 def main():
-    # Define PATH of repo directories that the tool will scan
-    directories = [
-        "/Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat",
-        "/Users/lironbiam/Documents/GoatRepositories/Kotlin/habitica-android",
-        "/Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin",
-        "/Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT",
-        "/Users/lironbiam/Documents/GoatRepositories/Kotlin/ivy-wallet",
-        "/Users/lironbiam/Documents/GoatRepositories/Kotlin/ytvanced"
-    ]
 
-    # OPTIONAL DEFINITIONS (if unchanged, program will still run successfully)
-    output_file = 'findings.json'  # Don't have to change this but make sure it matches the tool_cmd output file
-    tool_version = "undefined"  # define tool version. if left 'undefined', program attempts to auto generate. if fails - version will not appear in reports.
-
-    # MANDATORY DEFINITIONS 
-    tool_cmd = ["horusec", "start", "-p=.", "-o=json", f"-O=./{output_file}", "-s=LOW"]  # CLI command for tool scan
-    headers = ['severity', 'language', 'confidence', 'code', 'details']  # Headers for the CSV output file, matches the jq command's headers that we're keeping when filtering
-    jq_cmd = ['jq', '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]']  # make sure you match headers to 'headers'
+    # Extract definitions from config.yaml
+    with open('config.yaml', 'r') as f:
+        config = yaml.safe_load(f)
+    directories = config['directories']
+    output_file = config['output_file']
+    tool_version = config['tool_version']
+    tool_cmd = config['tool_cmd']
+    headers = config['headers']
+    jq_cmd = config['jq_cmd']
+    tool_cmd = config['tool_cmd']
+    tool_cmd = [arg.replace('{output_file}', output_file) for arg in tool_cmd]
     
-    #
-    # DO NOT CHANGE ANYTHING BELOW THIS COMMENT
-    #
 
     # Auto-defined variables
     tool_name = tool_cmd[0]

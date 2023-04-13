@@ -29,7 +29,7 @@ For example, if we're using Gitleaks, we need the following:
 <br>
 
 <h3>Usage</h3>
-Under 'main.py' define the following variables:
+Under 'config.env' define the following:
 
 * directories - list that provides the automation tool with the PATH to each repo directory that the tool will be scanning.
 
@@ -45,46 +45,75 @@ Under 'main.py' define the following variables:
 
 * (Optional) tool_version - for example ```1.17.1``` - version of the tool at the time of testing it.
 
+Run main.py after configuring config.yaml
+
 Files (.json, .csv) will be created in each of the target directories. These files were used to generate the final, merged .xlsx and .csv. You may review them to examine the findings, however, the next scan you initiate will erase these files and overwrite them with new findings.
 
 <br>
 
-<h3>Definition Examples:</h3>
+<h3>config.yaml Examples:</h3>
 
-```python
-directories = [
-    "~/Documents/JavascriptRepos/repoName",
-    "~/Documents/PythonRepos/anotherRepo",
-    "~/Documents/..."
-]
-```
+Example - Semgrep (only keep 'severity', 'path', 'lines', 'message' when parsing JSON output
 
-```python
-# OPTIONAL DEFINITIONS
-output_file = 'findings.json'
+```yaml
+# OPTIONAL DEFINITIONS - You don't have to change these
+output_file: findings.json  # .json output file of the tool
 tool_version = "undefined"  # or alternatively, "1.12.1" for example
+
+# MANDATORY DEFINITIONS
+directories:
+  - Repository/abcrepo
+  - Documents/anotherRepo
+  - AnotherDirectory/GoatRepo
+tool_cmd:
+  - semgrep
+  - scan
+  - --config=/Users/lironbiam/Documents/SummarizeFindings/rulesets/ai.yaml
+  - --verbose
+  - --output=./{output_file}
+  - --json
+  - --severity=ERROR
+  - --severity=WARNING
+headers:
+  - severity
+  - path
+  - lines
+  - message
+jq_cmd:
+  - jq
+  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]'
 ```
 
 Example - Horusec (only keep 'severity', 'language', 'confidence', 'code', 'details' when parsing JSON output)
-```python
+
+```yaml
+# OPTIONAL DEFINITIONS - You don't have to change these
+output_file: findings.json  # .json output file of the tool
+tool_version = "undefined"  # or alternatively, "1.12.1" for example
+
 # MANDATORY DEFINITIONS
-tool_cmd = ["horusec", "start", "-p=.", "-o=json", f"-O=./{output_file}", "-s=LOW"] 
-headers = ['severity', 'language', 'confidence', 'code', 'details']
-jq_cmd = ['jq', '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]']
+directories:
+  - Repository/abcrepo
+  - Documents/anotherRepo
+  - AnotherDirectory/GoatRepo
+tool_cmd:
+  - horusec
+  - start
+  - -p=.
+  - -o=json
+  - -O=./{output_file}
+  - -s=LOW
+headers:
+  - severity
+  - language
+  - confidence
+  - code
+  - details
+jq_cmd:
+  - jq
+  - '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]'
 ```
 
-Example - Semgrep (only keep 'severity', 'path', 'lines', 'message' when parsing JSON output)
-```python
-tool_cmd = ["semgrep", "scan", "--config=auto", "--verbose", f"--output=./{output_file}", "--json", "--severity=ERROR", "--severity=WARNING"]
-headers = ['severity', 'path', 'lines', 'message']
-jq_cmd = ['jq', '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]']
-```
-
-For a better understanding:
-```python
-headers = ['One', 'Two']
-jq_cmd = ['jq', {One, Two}']
-```
 
 <br>
 

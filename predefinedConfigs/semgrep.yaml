@@ -1,0 +1,29 @@
+# OPTIONAL DEFINITIONS
+output_file: findings.json
+tool_version: undefined
+
+# MANDATORY DEFINITIONS
+directories:
+  - PATH/TO/DIR/AndroGoat
+  - PATH/TO/DIR/habitica-android
+  - PATH/TO/DIR/Goatlin
+  - PATH/TO/DIR/NotyKT
+  - PATH/TO/DIR/ivy-wallet
+  - PATH/TO/DIR/ytvanced
+tool_cmd:
+  - semgrep
+  - scan
+  - --config=auto
+  - --verbose
+  - --output=./{output_file}
+  - --json
+  - --severity=ERROR
+  - --severity=WARNING
+headers:
+  - severity
+  - path
+  - lines
+  - message
+jq_cmd:
+  - jq
+  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]'
