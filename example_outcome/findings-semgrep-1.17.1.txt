@@ -1,0 +1,10 @@
+semgrep - 1.17.1
+13-04-2023
+
+CLI COMMANDS USED:
+semgrep scan --config=auto --verbose --output=./findings.json --json --severity=ERROR --severity=WARNING
+jq [.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]
+
+Total Repositories Scanned: 6
+Repositories: AndroGoat, habitica-android, Goatlin, NotyKT, ivy-wallet, ytvanced
+Total Findings: 21

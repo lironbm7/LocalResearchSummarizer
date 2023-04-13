@@ -1,0 +1,10 @@
+horusec - v2.8.0
+13-04-2023
+
+CLI COMMANDS USED:
+horusec start -p=. -o=json -O=./findings.json -s=LOW
+jq [.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]
+
+Total Repositories Scanned: 6
+Repositories: AndroGoat, habitica-android, Goatlin, NotyKT, ivy-wallet, ytvanced
+Total Findings: 76
