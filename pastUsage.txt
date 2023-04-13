@@ -1,9 +1,9 @@
 horusec
-    tool_cmd = ["horusec", "start", "-p=.", "-o=json", f"-O=./{output_file}", "-s=LOW"]  # CLI command for tool scan
-    headers = ['severity', 'language', 'confidence', 'code', 'details']  # Headers for the CSV output file, matches the jq command's headers that we're keeping when filtering
+    tool_cmd = ["horusec", "start", "-p=.", "-o=json", f"-O=./{output_file}", "-s=LOW"]
+    headers = ['severity', 'language', 'confidence', 'code', 'details']
     jq_cmd = ['jq', '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]']
 
 semgrep for Kotlin
-    tool_cmd = ["semgrep", "scan", "--config=auto", "--verbose", f"--output=./{output_file}", "--json", "--severity=ERROR", "--severity=WARNING"]  # CLI command for tool scan
-    headers = ['severity', 'path', 'lines', 'message']  # Headers for the CSV output file, matches the jq command's headers that we're keeping when filtering
+    tool_cmd = ["semgrep", "scan", "--config=auto", "--verbose", f"--output=./{output_file}", "--json", "--severity=ERROR", "--severity=WARNING"]
+    headers = ['severity', 'path', 'lines', 'message']
     jq_cmd = ['jq', '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]']

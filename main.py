@@ -22,12 +22,12 @@ def main():
 
     # OPTIONAL DEFINITIONS (if unchanged, program will still run successfully)
     output_file = 'findings.json'  # Don't have to change this but make sure it matches the tool_cmd output file
-    tool_version = "v2.8.0"  # define tool version. if left 'undefined', program attempts to auto generate. if fails - version will not appear in reports.
+    tool_version = "undefined"  # define tool version. if left 'undefined', program attempts to auto generate. if fails - version will not appear in reports.
 
     # MANDATORY DEFINITIONS 
     tool_cmd = ["horusec", "start", "-p=.", "-o=json", f"-O=./{output_file}", "-s=LOW"]  # CLI command for tool scan
     headers = ['severity', 'language', 'confidence', 'code', 'details']  # Headers for the CSV output file, matches the jq command's headers that we're keeping when filtering
-    jq_cmd = ['jq', '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]']    
+    jq_cmd = ['jq', '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]']  # make sure you match headers to 'headers'
     
     #
     # DO NOT CHANGE ANYTHING BELOW THIS COMMENT
