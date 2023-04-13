@@ -91,6 +91,9 @@ jq_cmd = ['jq', {One, Two}']
 <h3>Program Output</h3>
 
 <b>Files generated for Horusec v2.8.0</b>
+
 <b>horusec-v2.8.0.csv</b> - .csv file containing merged findings / detections of all repos together.
+
 <b>horusec-v2.8.0.xlsx</b> - Excel sheet, a conversion of the .csv file with subtle styling for an easier read of the detections.
+
 <b>horusec-v2.8.0.txt</b> - Verbal summarization to conclude what the .xlsx report is about and how it was generated.
