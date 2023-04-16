@@ -4,25 +4,28 @@ tool_version: undefined
 
 # MANDATORY DEFINITIONS
 directories:
-  - PATH/AndroGoat
-  - PATH/habitica-android
-  - PATH/Goatlin
-  - PATH/NotyKT
-  - PATH/ivy-wallet
-  - PATH/ytvanced
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/http4k-webgoat
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/habitica-android
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ivy-wallet
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ytvanced
 tool_cmd:
-  - horusec
-  - start
-  - -p=.
-  - -o=json
-  - -O=./{output_file}
-  - -s=LOW
+  - semgrep
+  - scan
+  - --config=/Users/lironbiam/Documents/SummarizeFindings/rulesets/sql2.yaml
+  - --verbose
+  - --output=./{output_file}
+  - --json
+  - --severity=ERROR
+  - --severity=WARNING
 headers:
   - severity
-  - language
-  - confidence
-  - code
-  - details
+  - path
+  - line
+  - lines
+  - message
 jq_cmd:
   - jq
-  - '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]'
+  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path, line: .start.line}]'

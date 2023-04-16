@@ -22,8 +22,9 @@ tool_cmd:
 headers:
   - severity
   - path
+  - line
   - lines
   - message
 jq_cmd:
   - jq
-  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]'
+  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path, line: .start.line}]'
