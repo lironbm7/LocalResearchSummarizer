@@ -4,26 +4,25 @@ tool_version: undefined
 
 # MANDATORY DEFINITIONS
 directories:
-  - PATH/TO/DIR/AndroGoat
-  - PATH/TO/DIR/habitica-android
-  - PATH/TO/DIR/Goatlin
-  - PATH/TO/DIR/NotyKT
-  - PATH/TO/DIR/ivy-wallet
-  - PATH/TO/DIR/ytvanced
+  - PATH/AndroGoat
+  - PATH/habitica-android
+  - PATH/Goatlin
+  - PATH/NotyKT
+  - PATH/ivy-wallet
+  - PATH/ytvanced
 tool_cmd:
-  - semgrep
-  - scan
-  - --config=auto
-  - --verbose
-  - --output=./{output_file}
-  - --json
-  - --severity=ERROR
-  - --severity=WARNING
+  - horusec
+  - start
+  - -p=.
+  - -o=json
+  - -O=./{output_file}
+  - -s=LOW
 headers:
   - severity
-  - path
-  - lines
-  - message
+  - language
+  - confidence
+  - code
+  - details
 jq_cmd:
   - jq
-  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path}]'
+  - '[.analysisVulnerabilities[].vulnerabilities | {severity, language, confidence, code, details}]'
