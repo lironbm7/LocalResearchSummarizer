@@ -1,3 +1,6 @@
 /.idea/
 /venv/
 /rulesets/
+*.txt
+*.csv
+*.xlsx

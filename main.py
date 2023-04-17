@@ -59,8 +59,9 @@ def main():
         subprocess.run(tool_cmd, cwd=directory)
         
         # Parse tool output using jq
-        with open(f"{directory}/parsed.json", "w") as f:
-            subprocess.run(jq_cmd, cwd=directory, stdout=f, input=open(f"{directory}/{output_file}").read().encode())
+        if os.path.exists(f'{directory}/{output_file}') and os.path.getsize(f'{directory}/{output_file}') > 0:
+            with open(f"{directory}/parsed.json", "w") as f:
+                subprocess.run(jq_cmd, cwd=directory, stdout=f, input=open(f"{directory}/{output_file}").read().encode())
         
         # Convert parsed JSON files to CSV files
         if os.path.exists(f'{directory}/parsed.json') and os.path.getsize(f'{directory}/parsed.json') > 0:

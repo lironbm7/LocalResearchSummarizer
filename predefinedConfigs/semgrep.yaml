@@ -4,16 +4,18 @@ tool_version: undefined
 
 # MANDATORY DEFINITIONS
 directories:
-  - PATH/TO/DIR/AndroGoat
-  - PATH/TO/DIR/habitica-android
-  - PATH/TO/DIR/Goatlin
-  - PATH/TO/DIR/NotyKT
-  - PATH/TO/DIR/ivy-wallet
-  - PATH/TO/DIR/ytvanced
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/http4k-webgoat
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Exposed
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/habitica-android
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ivy-wallet
+  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ytvanced
 tool_cmd:
   - semgrep
   - scan
-  - --config=auto
+  - --config=/Users/lironbiam/Documents/SummarizeFindings/rulesets/kotlin-rules.yaml
   - --verbose
   - --output=./{output_file}
   - --json
@@ -21,10 +23,12 @@ tool_cmd:
   - --severity=WARNING
 headers:
   - severity
+  - impact
+  - confidence
   - path
   - line
   - lines
   - message
 jq_cmd:
   - jq
-  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path, line: .start.line}]'
+  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path, line: .start.line, impact: .extra.metadata.impact, confidence: .extra.metadata.confidence}]'
