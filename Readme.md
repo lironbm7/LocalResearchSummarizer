@@ -4,7 +4,7 @@
 
 ![exceloutput](https://gcdnb.pbrd.co/images/Pc77F8KqRmjJ.png)
 
-.xlsv & .csv - represent the detections
+.xlsx & .csv files are the automatically generated documents that represent the detections
 
 .txt - an automatically generated verbal summarization of the tool used, CLI commands, repositories and findings.
 

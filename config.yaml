@@ -4,24 +4,31 @@ tool_version: undefined
 
 # MANDATORY DEFINITIONS
 directories:
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/http4k-webgoat
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Exposed
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/habitica-android
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ivy-wallet
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ytvanced
+  - PATH/AndroGoat
+  - PATH/http4k-webgoat
+  - PATH/Exposed
+  - PATH/habitica-android
+  - PATH/Goatlin
+  - PATH/NotyKT
+  - PATH/ivy-wallet
+  - PATH/ytvanced
 tool_cmd:
-  - snyk
-  - code
-  - test
+  - semgrep
+  - scan
+  - --config=/Users/lironbiam/Documents/SummarizeFindings/rulesets/kotlin-rules.yaml
+  - --verbose
+  - --output=./{output_file}
   - --json
-  - --json-file-output=./{output_file}
+  - --severity=ERROR
+  - --severity=WARNING
 headers:
-  - level
-  - uri
+  - severity
+  - impact
+  - confidence
+  - path
+  - line
+  - lines
   - message
 jq_cmd:
   - jq
-  - '[.runs[].results[] | {level, message: .message.text, uri: .locations[].physicalLocation.artifactLocation.uri}]'
+  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path, line: .start.line, impact: .extra.metadata.impact, confidence: .extra.metadata.confidence}]'
