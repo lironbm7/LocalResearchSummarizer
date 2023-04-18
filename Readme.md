@@ -29,7 +29,7 @@ For example, if we're using Gitleaks, we need the following:
 <br>
 
 <h3>Usage</h3>
-Under 'config.env' define the following:
+Under 'config.yaml' define the following:
 
 * directories - list that provides the automation tool with the PATH to each repo directory that the tool will be scanning.
 
