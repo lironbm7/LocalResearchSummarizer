@@ -7,28 +7,23 @@ directories:
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/http4k-webgoat
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Exposed
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/habitica-android
+  - /Users/lironbiam/Documents/GoatRepositories/NodeGoat/NodeGoat
+  - /Users/lironbiam/Documents/GoatRepositories/pygoat
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ivy-wallet
   - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ytvanced
 tool_cmd:
-  - semgrep
-  - scan
-  - --config=/Users/lironbiam/Documents/SummarizeFindings/rulesets/kotlin-rules.yaml
-  - --verbose
-  - --output=./{output_file}
-  - --json
-  - --severity=ERROR
-  - --severity=WARNING
+  - gitleaks
+  - detect
+  - -f=json
+  - -r=./{output_file}
 headers:
-  - severity
-  - impact
-  - confidence
-  - path
-  - line
-  - lines
-  - message
+  - Description
+  - Entropy
+  - File
+  - StartLine
+  - Secret
 jq_cmd:
   - jq
-  - '[.results[] | {lines: .extra.lines, message: .extra.message, severity: .extra.severity, path: .path, line: .start.line, impact: .extra.metadata.impact, confidence: .extra.metadata.confidence}]'
+  - '[.[] | {Description: .Description, StartLine: .StartLine, Entropy: .Entropy, File: .File, Secret: .Secret}]'
