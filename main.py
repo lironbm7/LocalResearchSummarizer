@@ -9,6 +9,8 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 
+# You don't have to touch anything in main.py for the program to work
+# Define config.yaml according to Readme / predefined config examples
 
 def main():
 
