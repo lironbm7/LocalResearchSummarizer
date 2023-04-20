@@ -4,23 +4,19 @@ tool_version: undefined
 
 # MANDATORY DEFINITIONS
 directories:
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/AndroGoat
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/http4k-webgoat
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Exposed
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/habitica-android
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/Goatlin
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/NotyKT
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ivy-wallet
-  - /Users/lironbiam/Documents/GoatRepositories/Kotlin/ytvanced
+  - C:/Users/97250/Documents/Microsoft VS Code/vsProjects/@DRAFTS/NodeGoat
+  - C:/Users/97250/Documents/Files/VulnerableProjects/pygoat
 tool_cmd:
-  - semgrep
-  - scan
-  - --config=/Users/lironbiam/Documents/SummarizeFindings/rulesets/kotlin-rules.yaml
-  - --verbose
-  - --output=./{output_file}
-  - --json
-  - --severity=ERROR
-  - --severity=WARNING
+  - docker
+  - run
+  - --rm
+  - -v
+  - ${PWD}:/path
+  - zricethezav/gitleaks:latest
+  - detect
+  - --source
+  - /path
+  - -v
 headers:
   - severity
   - impact

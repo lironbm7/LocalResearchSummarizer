@@ -9,11 +9,11 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 
+
 # You don't have to touch anything in main.py for the program to work
 # Define config.yaml according to Readme / predefined config examples
 
 def main():
-
     # Extract definitions from config.yaml
     with open('config.yaml', 'r') as f:
         config = yaml.safe_load(f)
@@ -25,7 +25,6 @@ def main():
     jq_cmd = config['jq_cmd']
     tool_cmd = config['tool_cmd']
     tool_cmd = [arg.replace('{output_file}', output_file) for arg in tool_cmd]
-    
 
     # Auto-defined variables
     tool_name = tool_cmd[0]
@@ -39,10 +38,12 @@ def main():
     else:
         output_file_name = f"{tool_name}-{tool_version}"  # use the hard-coded version
 
-
     # Run CLI commands for each one of the directories defined above
     for directory in directories:
 
+        # Resetting the tool_cmd because the previous iteration might have changed ${PWD} to the previous directory
+        tool_cmd = config['tool_cmd']
+        tool_cmd = [arg.replace('{output_file}', output_file) for arg in tool_cmd]
         # clean up (delete old findings files) from a previous scan to prevent false positives and only maintain new data
         cleanup_files = [output_file, "parsed.json", "parsed.csv"]
         for file_name in cleanup_files:
@@ -53,18 +54,22 @@ def main():
         # Extract project name from directory path
         project_name = re.search(r'/([^/]+)/?$', directory).group(1)
         print(f'Current working directory: {project_name}')
-        
+
         # Change working directory
-        subprocess.run(["cd", directory])
-        
+        os.chdir(directory)
+
+        # replace ${PWD} with current working directory, in case we're using Docker
+        tool_cmd = [arg.replace('${PWD}', directory) for arg in tool_cmd]
+        print(tool_cmd)
+
         # Run tool scan
-        subprocess.run(tool_cmd, cwd=directory)
-        
+        subprocess.run(tool_cmd)
+
         # Parse tool output using jq
         if os.path.exists(f'{directory}/{output_file}') and os.path.getsize(f'{directory}/{output_file}') > 0:
             with open(f"{directory}/parsed.json", "w") as f:
-                subprocess.run(jq_cmd, cwd=directory, stdout=f, input=open(f"{directory}/{output_file}").read().encode())
-        
+                subprocess.run(jq_cmd, stdout=f, input=open(output_file).read().encode())
+
         # Convert parsed JSON files to CSV files
         if os.path.exists(f'{directory}/parsed.json') and os.path.getsize(f'{directory}/parsed.json') > 0:
             with open(f"{directory}/parsed.json") as f:
@@ -75,7 +80,8 @@ def main():
                 writer.writerow(headers_row)
                 for item in data:
                     # Handle non-printable ASCII characters in conversion from .json to .csv
-                    data_row = [project_name] + ["".join(filter(lambda x: x in string.printable, str(item[header]))) for header in headers]
+                    data_row = [project_name] + ["".join(filter(lambda x: x in string.printable, str(item[header]))) for
+                                                 header in headers]
                     writer.writerow(data_row)
         else:
             print(f'> {project_name} has no findings therefore no parsed.csv. Skipping..')
@@ -93,7 +99,7 @@ def main():
                     for row in subdir_reader:
                         # Write all fields except the Repository field
                         writer.writerow([project_name] + row[1:])
-    
+
     # convert .csv to .xlsx
     with open(f'{output_file_name}.csv', 'r') as f:
         data = csv.reader(f)
@@ -168,6 +174,7 @@ def main():
             t.write(f"Total Findings: {lines_in_csv}\n")
             print(f'> Report Sumumarization saved into a Text file named {output_file_name}.txt')
 
+
 if __name__ == "__main__":
-    csv.field_size_limit(10485760) # 10 MB
+    csv.field_size_limit(10485760)  # 10 MB
     main()
